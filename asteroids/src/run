@@ -1,2 +1,2 @@
-gcc -o main main.c asteroid.c -lraylib -lm -ldl -lpthread -lX11
+./build
 ./main

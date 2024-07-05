@@ -4,6 +4,7 @@
 #include "asteroid.h"
 #include "raylib.h"
 #include "raymath.h"
+#include "raygui.h"
 
 const int screenWidth = 600;
 const int screenHeight = 600;
@@ -25,7 +26,7 @@ static float _lastAsteroidCreationTime = -1.0f;
 
 // DEBUG
 bool _showAngleCone = false;
-bool _showAsteroidCount = true;
+bool _showAsteroidCount = false;
 Vector2 line0[2];
 Vector2 line1[2];
 //
@@ -92,6 +93,18 @@ void UpdateDrawFrame(void)
 
         DrawRectangle(10, 10, 100, 52, Fade(BLACK, 0.6f));
         DrawText(TextFormat("ASTEROIDS: %d", count), 20, 20, 32, WHITE);
+    }
+
+    Rectangle r = {10, screenHeight - 100, 180, 80};
+    if (GuiButton(r, "Show Asteroid Count"))
+    {
+        _showAsteroidCount = !_showAsteroidCount;
+    }
+
+    r.x += 180 + 10;
+    if(GuiButton(r, "Show Asteroid Cone"))
+    {
+        _showAngleCone = !_showAngleCone;
     }
 
     EndDrawing();
