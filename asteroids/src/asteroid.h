@@ -1,0 +1,37 @@
+#ifndef ASTEROID_h
+#define ASTEROID_h
+
+#include "raylib.h"
+
+#define ASTEROID_ROT_SPEED_MIN 5
+#define ASTEROID_ROT_SPEED_MAX 240
+
+#define ASTEROID_SPEED_MIN 100
+#define ASTEROID_SPEED_MAX 300
+
+#define ASTEROID_LIFE 10.0f
+
+typedef enum AsteroidSize
+{
+    ASTEROID_SMALL = 1,
+    ASTEROID_MEDIUM = 2,
+    ASTEROID_LARGE = 4,
+} AsteroidSize;
+
+
+typedef struct Asteroid
+{
+    bool active;
+    Vector2 position;
+    float rotation;
+    float rotationSpeed;
+    Vector2 velocity;
+    AsteroidSize size;
+    float creationTime;
+} Asteroid;
+
+Asteroid CreateAsteroid(Vector2 position, Vector2 velocity, AsteroidSize size);
+void AsteroidUpdate(Asteroid *asteroid, float frametime, float time);
+void AsteroidDraw(Asteroid asteroid);
+
+#endif
