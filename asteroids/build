@@ -1,1 +1,1 @@
-gcc -o main main.c asteroid.c -lraylib -lm -ldl -lpthread -lX11
+gcc -o main main.c asteroid.c debug.c game_asteroids.c player.c -lraylib -lm -ldl -lpthread -lX11
