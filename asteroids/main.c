@@ -40,7 +40,7 @@ void UpdateDrawFrame(void)
 
     ClearBackground(NEARBLACK);
 
-    // DrawAsteroids();
+    DrawAsteroids();
     PlayerDraw(_player);
     ShowDebugVisualisations(activeAsteroids);
 
